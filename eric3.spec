@@ -3,24 +3,21 @@ Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 %define		tar_name	eric
-Version:	3.5.0
-#%%define snap 20031115
-Release:	1
+Version:	3.5.1
+%define         snap 20041017
+Release:	0.%{snap}.1
 License:	GPL
 Group:		X11/Development/Tools
-#Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
-Source0:	http://dl.sourceforge.net/sourceforge/eric-ide/%{tar_name}-%{version}.tar.gz
-# Source0-md5:	a6539de511b347a0d30796c40f7f1360
-# Source0-size:	1415558
-# Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
+#Source0:	http://dl.sourceforge.net/sourceforge/eric-ide/%{tar_name}-%{version}.tar.gz
+Source0:	http://www.die-offenbachs.de/detlev/snapshots/eric-snapshot-%{snap}.tar.gz
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
-BuildRequires:	python-PyQt >= 3.8
-BuildRequires:	qscintilla-devel >= 1:1.2
+BuildRequires:	python-PyQt >= 3.13
+BuildRequires:	qscintilla-devel >= 1:1.4
 BuildRequires:	rpm-pythonprov
-BuildRequires:	sip >= 3.8
+BuildRequires:	sip >= 4.1.1
 %pyrequires_eq	python # python-modules ?
 Requires:	python-devel-tools
-Requires:	python-PyQt >= 3.8
+Requires:	python-PyQt >= 3.13
 Obsoletes:	eric
 
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -34,14 +31,16 @@ Eric3 jest pe³nowarto¶ciowym IDE dla Pythona napisanym w PyQt i
 u¿ywaj±cym edytora QScintilla.
 
 %prep
-%setup -q -n %{tar_name}-%{version}
+#%%setup -q -n %{tar_name}-%{version}
+%setup -q -n %{tar_name}-snapshot-%{snap}
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_docdir}/%{name}
 python install.py -c -b %{_bindir} -d %{py_sitedir} -i $RPM_BUILD_ROOT
-%py_comp $RPM_BUILD_ROOT%{py_sitedir}
-%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
+%py_comp $RPM_BUILD_ROOT%{py_sitedir}/*
+%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -50,10 +49,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README eric/Documentation/*
 %attr(755,root,root) %{_bindir}/*
+%dir %{py_sitedir}/
+%{py_sitedir}/eric3config.py
+%{py_sitedir}/sitecustomize.py
 %dir %{py_sitedir}/%{name}
 %{py_sitedir}/%{name}/*.py[co]
 %dir %{py_sitedir}/%{name}/pixmaps
 %{py_sitedir}/%{name}/pixmaps/*
+%dir %{py_sitedir}/%{name}/DTDs
+%{py_sitedir}/%{name}/DTDs/*.dtd
 %dir %{py_sitedir}/%{name}/Checks
 %{py_sitedir}/%{name}/Checks/*.py[co]
 %dir %{py_sitedir}/%{name}/Debugger
