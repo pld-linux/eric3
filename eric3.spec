@@ -4,13 +4,13 @@ Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 %define		tar_name	eric
 Version:	3.3
-%define snap 20030920
-Release:	0.%{snap}.1.1
+%define snap 20031025
+Release:	0.%{snap}.5
 License:	GPL
 Group:		X11/Development/Tools
 # Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
 Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
-# Source0-md5:	2f5ef060a00c9fb67791c0d0c304dd79
+# Source0-md5:	b2f5f15d50f7adba8aa97df75cc6837b
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt-devel >= 3.8
 BuildRequires:	qscintilla-devel >= 1:1.2
