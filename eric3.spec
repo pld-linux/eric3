@@ -11,6 +11,7 @@ Group:		X11/Development/Tools
 #Source0:	http://dl.sourceforge.net/sourceforge/eric-ide/%{tar_name}-%{version}.tar.gz
 Source0:	http://www.die-offenbachs.de/detlev/snapshots/eric-snapshot-%{snap}.tar.gz
 # Source0-md5:	9db7238519beefdb3599d34413b4e79a
+Source1:	%{name}.desktop
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 #BuildRequires:	python-PyQt >= 3.13
 #BuildRequires:	qscintilla-devel >= 1:1.4
@@ -19,6 +20,7 @@ URL:		http://www.die-offenbachs.de/detlev/eric3.html
 %pyrequires_eq	python # python-modules ?
 Requires:	python-devel-tools
 Requires:	python-PyQt >= 3.13
+BuildRequires:	python-PyQt-devel >= 3.13
 Obsoletes:	eric
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,10 +38,12 @@ u¿ywaj±cym edytora QScintilla.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_docdir}/%{name}
+install -d $RPM_BUILD_ROOT{%{_docdir}/%{name},%{_pixmapsdir},%{_desktopdir}}
 python install.py -c -b %{_bindir} -d %{py_sitedir} -i $RPM_BUILD_ROOT
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}/*
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}/*
+cp $RPM_BUILD_ROOT%{py_sitedir}/%{name}/icons/default/eric.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+install %SOURCE1 $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -144,3 +148,5 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/*/*/*.py
 %{py_sitedir}/%{name}/*/*/*/*.py
 %{py_sitedir}/%{name}/*/*/*/*/*.py
+%{_pixmapsdir}/%{name}.png
+%{_desktopdir}/%{name}.desktop
