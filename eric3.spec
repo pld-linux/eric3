@@ -6,7 +6,7 @@ Name:		eric3
 %define		tar_name	eric
 Version:	3.3
 %define snap 20030914
-Release:	0.%{snap}.0.1
+Release:	0.%{snap}.1
 License:	GPL
 Group:		X11/Development/Tools
 # Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
