@@ -81,9 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 
 #%files devel
 #%defattr(644,root,root,755)
-#%{py_sitedir}/*.py
-#%{py_sitedir}/*.py[co]
+#%%{py_sitedir}/*.py
+#%%{py_sitedir}/*.py[co]
 
 #%files examples
 #%defattr(644,root,root,755)
-#%{_examplesdir}/python/%{module}
+#%%{_examplesdir}/python/%{module}
