@@ -14,7 +14,6 @@ BuildRequires:	python-PyQt-devel >= 3.7
 BuildRequires:	qscintilla-devel >= 1.53
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.7
-#%%requires_eq	sip # not so sure if it's needed in runtime
 %pyrequires_eq	python # python-modules ?
 Requires:	python-PyQt >= 3.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -98,6 +97,8 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/eric3/Wizards/InputDialogWizard/*.py[co]
 %dir %{py_sitedir}/eric3/Wizards/MessageBoxWizard
 %{py_sitedir}/eric3/Wizards/MessageBoxWizard/*.py[co]
+#NOTE: eric3 uses *.py files for it's own purposes
+# so do not remove them from package
 %{py_sitedir}/eric3/*.py
 %{py_sitedir}/eric3/*/*.py
 %{py_sitedir}/eric3/*/*/*.py
