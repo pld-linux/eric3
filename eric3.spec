@@ -5,14 +5,14 @@ Name:		eric3
 %define		tar_name	eric
 Version:	3.3
 %define snap 20031115
-Release:	0.%{snap}.1
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-# Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
-Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
-# Source0-md5:	ad8b99f617944ef65d08d984a0371c66
+Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
+# Source0-md5:	7b022ed9c9cb96a24e793d9357eeac96
+# Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
-BuildRequires:	python-PyQt-devel >= 3.8
+BuildRequires:	python-PyQt >= 3.8
 BuildRequires:	qscintilla-devel >= 1:1.2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.8
@@ -32,8 +32,8 @@ Eric3 jest pe³nowarto¶ciowym IDE dla Pythona napisanym w PyQt i
 u¿ywaj±cym edytora QScintilla.
 
 %prep
-# %%setup -q -n %{tar_name}-%{version}.tar.gz
-%setup -q -n %{tar_name}-snapshot-%{snap}
+%setup -q -n %{tar_name}-%{version}
+#%%setup -q -n %{tar_name}-snapshot-%{snap}
 
 %install
 rm -rf $RPM_BUILD_ROOT
