@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
