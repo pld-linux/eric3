@@ -5,12 +5,12 @@ Name:		eric3
 %define		tar_name	eric
 Version:	3.3
 %define snap 20030817
-Release:	%{snap}-1
+Release:	0.%{snap}.1
 License:	GPL
 Group:		X11/Development/Tools
 # Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
 Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
-# Source0-md5:	a245f974e7faefbdb22cef60a19cc79a
+# Source0-md5:	76c8cdff5b67a6f97faeff0ee741c15c
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt-devel >= 3.8
 BuildRequires:	qscintilla-devel >= 1.2
