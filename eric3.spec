@@ -2,12 +2,13 @@
 %include	/usr/lib/rpm/macros.python
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
-Name:		eric
+Name:		eric3
+%define		tar_name	eric
 Version:	3.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	http://www.die-offenbachs.de/detlev/files/%{name}-%{version}.tar.gz
+Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
 # Source0-md5:	d512d91cf04ce58420e0001952bd45b2
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt-devel >= 3.7
@@ -28,7 +29,7 @@ Eric3 jest pe³nowarto¶ciowym IDE dla Pythona napisanym w PyQt i
 u¿ywaj±cy edytora QScintilla.
 
 %prep
-%setup -q 
+%setup -q -n %{tar_name}-%{version}
 
 %build
 
