@@ -18,6 +18,8 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.8
 %pyrequires_eq	python # python-modules ?
 Requires:	python-PyQt >= 3.8
+Obsoletes:	eric
+
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
