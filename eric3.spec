@@ -6,7 +6,7 @@ Name:		eric3
 %define		tar_name	eric
 Version:	3.3
 %define snap 20030817
-Release:	0.%{snap}.2
+Release:	0.%{snap}.3
 License:	GPL
 Group:		X11/Development/Tools
 # Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
@@ -19,6 +19,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.7
 %pyrequires_eq	python # python-modules ?
 Requires:	python-PyQt >= 3.7
+Obsoletes:	eric
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -56,10 +57,13 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Checks/*.py[co]
 %dir %{py_sitedir}/%{name}/Debugger
 %{py_sitedir}/%{name}/Debugger/*.py[co]
+%dir %{py_sitedir}/%{name}/DesignerTemplates
+%{py_sitedir}/%{name}/DesignerTemplates/*.tmpl
 %dir %{py_sitedir}/%{name}/DocumentationTools
 %{py_sitedir}/%{name}/DocumentationTools/*.py[co]
 %dir %{py_sitedir}/%{name}/Examples
 %{py_sitedir}/%{name}/Examples/*.py[co]
+%dir %{py_sitedir}/%{name}/Examples/Scripting
 %dir %{py_sitedir}/%{name}/Helpviewer
 %{py_sitedir}/%{name}/Helpviewer/*.py[co]
 %dir %{py_sitedir}/%{name}/Icons
@@ -74,7 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Refactoring/*.py[co]
 %dir %{py_sitedir}/%{name}/Scripting
 %{py_sitedir}/%{name}/Scripting/*.py[co]
-
 %dir %{py_sitedir}/%{name}/QScintilla
 %{py_sitedir}/%{name}/QScintilla/*.py[co]
 %dir %{py_sitedir}/%{name}/Tools
