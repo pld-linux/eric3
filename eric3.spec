@@ -1,13 +1,18 @@
+# TODO: - Add HTML docs.
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 %define		tar_name	eric
-Version:	3.4.2
+Version:	3.5.0
+#%%define snap 20031115
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
-# Source0-md5:	2e88c9ee5292cedef7920f81f5a80965
+#Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sourceforge/eric-ide/%{tar_name}-%{version}.tar.gz
+# Source0-md5:	a6539de511b347a0d30796c40f7f1360
+# Source0-size:	1415558
+# Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt >= 3.8
 BuildRequires:	qscintilla-devel >= 1:1.2
@@ -94,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/ViewManager/*.py[co]
 %dir %{py_sitedir}/%{name}/Wizards
 %{py_sitedir}/%{name}/Wizards/*.py[co]
-%{py_sitedir}/%{name}/Wizards/*.e3w
+#%%{py_sitedir}/%{name}/Wizards/*.e3w
 %dir %{py_sitedir}/%{name}/Wizards/ColorDialogWizard
 %{py_sitedir}/%{name}/Wizards/ColorDialogWizard/*.py[co]
 %dir %{py_sitedir}/%{name}/Wizards/FileDialogWizard
@@ -109,9 +114,11 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Wizards/PyRegExpWizard/*.py[co]
 %dir %{py_sitedir}/%{name}/Wizards/QRegExpWizard
 %{py_sitedir}/%{name}/Wizards/QRegExpWizard/*.py[co]
+%dir %{py_sitedir}/%{name}/XML
+%{py_sitedir}/%{name}/XML/*.py[co]
 
 # Third party brm/bike - to separate package ?
-# I have no idea that is that ...
+# I have no idea what is that ...
 %dir %{py_sitedir}/%{name}/ThirdParty/
 %{py_sitedir}/%{name}/ThirdParty/*.py[co]
 %dir %{py_sitedir}/%{name}/ThirdParty/brm
