@@ -10,7 +10,6 @@ Source0:	http://www.die-offenbachs.de/detlev/files/%{name}-%{version}.tar.gz
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt-devel >= 2.2.1
 BuildRequires:	qt-devel >= 3.0.2
-BuildRequires:  qt-static >= 3.0.2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.5
 %requires_eq	sip
