@@ -13,7 +13,7 @@ Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{sn
 # Source0-md5:	76c8cdff5b67a6f97faeff0ee741c15c
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt-devel >= 3.8
-BuildRequires:	qscintilla-devel >= 1.2
+BuildRequires:	qscintilla-devel >= 1:1.2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.8
 %pyrequires_eq	python # python-modules ?
