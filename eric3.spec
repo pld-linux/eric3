@@ -1,13 +1,10 @@
-# TODO: 
-#    - Add Documentation dir to %doc 
-#    - Fix paths in /usr/bin/* (sed adept needed)
 
 %include	/usr/lib/rpm/macros.python
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric
 Version:	3.2
-Release:	0.2
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://www.die-offenbachs.de/detlev/files/%{name}-%{version}.tar.gz
@@ -37,10 +34,11 @@ u¿ywaj±cy edytora QScintilla.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-python install.py -b $RPM_BUILD_ROOT%{_bindir} -d $RPM_BUILD_ROOT%{py_sitedir} -x
+install -d $RPM_BUILD_ROOT%{_docdir}/eric3
+python install.py -b %{_bindir} -d %{py_sitedir} -i $RPM_BUILD_ROOT
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
-find $RPM_BUILD_ROOT%{py_sitedir} -name \*.py -exec rm {} \;
+#find $RPM_BUILD_ROOT%{py_sitedir} -name \*.py -exec rm {} \;
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -100,3 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/eric3/Wizards/InputDialogWizard/*.py[co]
 %dir %{py_sitedir}/eric3/Wizards/MessageBoxWizard
 %{py_sitedir}/eric3/Wizards/MessageBoxWizard/*.py[co]
+%{py_sitedir}/eric3/*.py
+%{py_sitedir}/eric3/*/*.py
+%{py_sitedir}/eric3/*/*/*.py
