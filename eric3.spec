@@ -4,20 +4,21 @@ Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 %define		tar_name	eric
 Version:	3.5.1
-%define		snap	20041029
-Release:	0.%{snap}.1
+Release:	1
+#%%define		snap	20041029
+#Release:	0.%{snap}.1
 License:	GPL
 Group:		X11/Development/Tools
-#Source0:	http://dl.sourceforge.net/sourceforge/eric-ide/%{tar_name}-%{version}.tar.gz
-Source0:	http://www.die-offenbachs.de/detlev/snapshots/eric-snapshot-%{snap}.tar.gz
-# Source0-md5:	9db7238519beefdb3599d34413b4e79a
+Source0:	http://dl.sourceforge.net/sourceforge/eric-ide/%{tar_name}-%{version}.tar.gz
+# Source0-md5:	5eadd38ef54f9df4ed09a20074f27976
+#Source0:	http://www.die-offenbachs.de/detlev/snapshots/eric-snapshot-%{snap}.tar.gz
 Source1:	%{name}.desktop
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
-BuildRequires:	python-PyQt-devel >= 3.13
-#BuildRequires:	qscintilla-devel >= 1:1.4
-#BuildRequires:	rpm-pythonprov
+BuildRequires:	python-PyQt >= 3.13
+BuildRequires:	qscintilla-devel >= 1:1.4
+BuildRequires:	rpm-pythonprov
 #BuildRequires:	sip >= 4.1.1
-%pyrequires_eq	python # python-modules ?
+%pyrequires_eq	python-modules
 Requires:	python-PyQt >= 3.13
 Requires:	python-devel-tools
 Obsoletes:	eric
@@ -32,8 +33,8 @@ Eric3 jest pe³nowarto¶ciowym IDE dla Pythona napisanym w PyQt i
 u¿ywaj±cym edytora QScintilla.
 
 %prep
-#%%setup -q -n %{tar_name}-%{version}
-%setup -q -n %{tar_name}-snapshot-%{snap}
+%setup -q -n %{tar_name}-%{version}
+#%%setup -q -n %{tar_name}-snapshot-%{snap}
 
 %install
 rm -rf $RPM_BUILD_ROOT
