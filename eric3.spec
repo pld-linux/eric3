@@ -4,7 +4,7 @@ Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 %define		tar_name	eric
 Version:	3.3
-%define snap 20030817
+%define snap 20030914
 Release:	0.%{snap}.3
 License:	GPL
 Group:		X11/Development/Tools
