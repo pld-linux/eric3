@@ -2,13 +2,13 @@
 %include	/usr/lib/rpm/macros.python
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
-Name:		eric
+Name:		eric3
 Version:	3.3
 %define snap 20030810
 Release:	0.%{snap}.1
 License:	GPL
 Group:		X11/Development/Tools
-# Source0:	http://www.die-offenbachs.de/detlev/files/%{name}-%{version}.tar.gz
+# Source0:	http://www.die-offenbachs.de/detlev/files/eric-%{version}.tar.gz
 Source0:	http://www.die-offenbachs.de/detlev/snapshots/eric-snapshot-%{snap}.tar.gz
 # Source0-md5:	a245f974e7faefbdb22cef60a19cc79a
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
@@ -18,7 +18,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.7
 %pyrequires_eq	python # python-modules ?
 Requires:	python-PyQt >= 3.7-3
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/eric-%{version}-root-%(id -u -n)
 
 %description
 Eric3 is a full featured Python IDE that is written in PyQt using the
@@ -29,14 +29,14 @@ Eric3 jest pe³nowarto¶ciowym IDE dla Pythona napisanym w PyQt i
 u¿ywaj±cy edytora QScintilla.
 
 %prep
-# %%setup -q 
-%setup -q -n %{name}-snapshot-%{snap}
+# %%setup -q -n eric-%{version}.tar.gz
+%setup -q -n eric-snapshot-%{snap}
 
 %build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_docdir}/eric3
+install -d $RPM_BUILD_ROOT%{_docdir}/%{name}
 python install.py -b %{_bindir} -d %{py_sitedir} -i $RPM_BUILD_ROOT
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
@@ -49,59 +49,59 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README eric/Documentation/*
 %attr(755,root,root) %{_bindir}/*
-%dir %{py_sitedir}/eric3
-%{py_sitedir}/eric3/*.py[co]
-%dir %{py_sitedir}/eric3/pixmaps
-%{py_sitedir}/eric3/pixmaps/*
-%dir %{py_sitedir}/eric3/Checks
-%{py_sitedir}/eric3/Checks/*.py[co]
-%dir %{py_sitedir}/eric3/Debugger
-%{py_sitedir}/eric3/Debugger/*.py[co]
-%dir %{py_sitedir}/eric3/DocumentationTools
-%{py_sitedir}/eric3/DocumentationTools/*.py[co]
-%dir %{py_sitedir}/eric3/Examples
-%{py_sitedir}/eric3/Examples/*.py[co]
-%dir %{py_sitedir}/eric3/Helpviewer
-%{py_sitedir}/eric3/Helpviewer/*.py[co]
-%dir %{py_sitedir}/eric3/Icons
-%{py_sitedir}/eric3/Icons/*.py[co]
-%dir %{py_sitedir}/eric3/Preferences
-%{py_sitedir}/eric3/Preferences/*.py[co]
-%dir %{py_sitedir}/eric3/Project
-%{py_sitedir}/eric3/Project/*.py[co]
-%dir %{py_sitedir}/eric3/PyUnit
-%{py_sitedir}/eric3/PyUnit/*.py[co]
-%dir %{py_sitedir}/eric3/QScintilla
-%{py_sitedir}/eric3/QScintilla/*.py[co]
-%dir %{py_sitedir}/eric3/Tools
-%{py_sitedir}/eric3/Tools/*.py[co]
-%dir %{py_sitedir}/eric3/UI
-%{py_sitedir}/eric3/UI/*.py[co]
-%dir %{py_sitedir}/eric3/Utilities
-%{py_sitedir}/eric3/Utilities/*.py[co]
-%dir %{py_sitedir}/eric3/VCS
-%{py_sitedir}/eric3/VCS/*.py[co]
-%dir %{py_sitedir}/eric3/VCS/cvsPackage
-%{py_sitedir}/eric3/VCS/cvsPackage/*.py[co]
-%dir %{py_sitedir}/eric3/VCS/subversionPackage
-%{py_sitedir}/eric3/VCS/subversionPackage/*.py[co]
-%dir %{py_sitedir}/eric3/ViewManager
-%{py_sitedir}/eric3/ViewManager/*.py[co]
-%dir %{py_sitedir}/eric3/Wizards
-%{py_sitedir}/eric3/Wizards/*.py[co]
-%{py_sitedir}/eric3/Wizards/*.e3w
-%dir %{py_sitedir}/eric3/Wizards/ColorDialogWizard
-%{py_sitedir}/eric3/Wizards/ColorDialogWizard/*.py[co]
-%dir %{py_sitedir}/eric3/Wizards/FileDialogWizard
-%{py_sitedir}/eric3/Wizards/FileDialogWizard/*.py[co]
-%dir %{py_sitedir}/eric3/Wizards/FontDialogWizard
-%{py_sitedir}/eric3/Wizards/FontDialogWizard/*.py[co]
-%dir %{py_sitedir}/eric3/Wizards/InputDialogWizard
-%{py_sitedir}/eric3/Wizards/InputDialogWizard/*.py[co]
-%dir %{py_sitedir}/eric3/Wizards/MessageBoxWizard
-%{py_sitedir}/eric3/Wizards/MessageBoxWizard/*.py[co]
+%dir %{py_sitedir}/%{name}
+%{py_sitedir}/%{name}/*.py[co]
+%dir %{py_sitedir}/%{name}/pixmaps
+%{py_sitedir}/%{name}/pixmaps/*
+%dir %{py_sitedir}/%{name}/Checks
+%{py_sitedir}/%{name}/Checks/*.py[co]
+%dir %{py_sitedir}/%{name}/Debugger
+%{py_sitedir}/%{name}/Debugger/*.py[co]
+%dir %{py_sitedir}/%{name}/DocumentationTools
+%{py_sitedir}/%{name}/DocumentationTools/*.py[co]
+%dir %{py_sitedir}/%{name}/Examples
+%{py_sitedir}/%{name}/Examples/*.py[co]
+%dir %{py_sitedir}/%{name}/Helpviewer
+%{py_sitedir}/%{name}/Helpviewer/*.py[co]
+%dir %{py_sitedir}/%{name}/Icons
+%{py_sitedir}/%{name}/Icons/*.py[co]
+%dir %{py_sitedir}/%{name}/Preferences
+%{py_sitedir}/%{name}/Preferences/*.py[co]
+%dir %{py_sitedir}/%{name}/Project
+%{py_sitedir}/%{name}/Project/*.py[co]
+%dir %{py_sitedir}/%{name}/PyUnit
+%{py_sitedir}/%{name}/PyUnit/*.py[co]
+%dir %{py_sitedir}/%{name}/QScintilla
+%{py_sitedir}/%{name}/QScintilla/*.py[co]
+%dir %{py_sitedir}/%{name}/Tools
+%{py_sitedir}/%{name}/Tools/*.py[co]
+%dir %{py_sitedir}/%{name}/UI
+%{py_sitedir}/%{name}/UI/*.py[co]
+%dir %{py_sitedir}/%{name}/Utilities
+%{py_sitedir}/%{name}/Utilities/*.py[co]
+%dir %{py_sitedir}/%{name}/VCS
+%{py_sitedir}/%{name}/VCS/*.py[co]
+%dir %{py_sitedir}/%{name}/VCS/cvsPackage
+%{py_sitedir}/%{name}/VCS/cvsPackage/*.py[co]
+%dir %{py_sitedir}/%{name}/VCS/subversionPackage
+%{py_sitedir}/%{name}/VCS/subversionPackage/*.py[co]
+%dir %{py_sitedir}/%{name}/ViewManager
+%{py_sitedir}/%{name}/ViewManager/*.py[co]
+%dir %{py_sitedir}/%{name}/Wizards
+%{py_sitedir}/%{name}/Wizards/*.py[co]
+%{py_sitedir}/%{name}/Wizards/*.e3w
+%dir %{py_sitedir}/%{name}/Wizards/ColorDialogWizard
+%{py_sitedir}/%{name}/Wizards/ColorDialogWizard/*.py[co]
+%dir %{py_sitedir}/%{name}/Wizards/FileDialogWizard
+%{py_sitedir}/%{name}/Wizards/FileDialogWizard/*.py[co]
+%dir %{py_sitedir}/%{name}/Wizards/FontDialogWizard
+%{py_sitedir}/%{name}/Wizards/FontDialogWizard/*.py[co]
+%dir %{py_sitedir}/%{name}/Wizards/InputDialogWizard
+%{py_sitedir}/%{name}/Wizards/InputDialogWizard/*.py[co]
+%dir %{py_sitedir}/%{name}/Wizards/MessageBoxWizard
+%{py_sitedir}/%{name}/Wizards/MessageBoxWizard/*.py[co]
 #NOTE: eric3 uses *.py files for it's own purposes
 # so do not remove them from package
-%{py_sitedir}/eric3/*.py
-%{py_sitedir}/eric3/*/*.py
-%{py_sitedir}/eric3/*/*/*.py
+%{py_sitedir}/%{name}/*.py
+%{py_sitedir}/%{name}/*/*.py
+%{py_sitedir}/%{name}/*/*/*.py
