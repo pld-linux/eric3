@@ -4,20 +4,16 @@ Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 %define		tar_name	eric
 Version:	3.5.1
-Release:	1
-#%%define		snap	20041029
-#Release:	0.%{snap}.1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://dl.sourceforge.net/sourceforge/eric-ide/%{tar_name}-%{version}.tar.gz
 # Source0-md5:	5eadd38ef54f9df4ed09a20074f27976
-#Source0:	http://www.die-offenbachs.de/detlev/snapshots/eric-snapshot-%{snap}.tar.gz
 Source1:	%{name}.desktop
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt >= 3.13
 BuildRequires:	qscintilla-devel >= 1:1.4
 BuildRequires:	rpm-pythonprov
-#BuildRequires:	sip >= 4.1.1
 %pyrequires_eq	python-modules
 Requires:	python-PyQt >= 3.13
 Requires:	python-devel-tools
@@ -34,14 +30,16 @@ u¿ywaj±cym edytora QScintilla.
 
 %prep
 %setup -q -n %{tar_name}-%{version}
-#%%setup -q -n %{tar_name}-snapshot-%{snap}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_docdir}/%{name},%{_pixmapsdir},%{_desktopdir}}
+
 python install.py -c -b %{_bindir} -d %{py_sitedir} -i $RPM_BUILD_ROOT
+
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}/*
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}/*
+
 cp $RPM_BUILD_ROOT%{py_sitedir}/%{name}/icons/default/eric.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 install %SOURCE1 $RPM_BUILD_ROOT%{_desktopdir}
 
