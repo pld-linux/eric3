@@ -1,10 +1,13 @@
-# TODO: Add Documentation dir to %doc 
+# TODO: 
+#    - Add Documentation dir to %doc 
+#    - Fix paths in /usr/bin/* (sed adept needed)
+
 %include	/usr/lib/rpm/macros.python
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric
 Version:	3.2
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://www.die-offenbachs.de/detlev/files/%{name}-%{version}.tar.gz
@@ -16,6 +19,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.7
 #%%requires_eq	sip # not so sure if it's needed in runtime
 %pyrequires_eq	python # python-modules ?
+Requires:	python-PyQt >= 3.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
