@@ -1,4 +1,3 @@
-
 %include	/usr/lib/rpm/macros.python
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
@@ -27,13 +26,11 @@ QScintilla editor widget.
 
 %description -l pl
 Eric3 jest pe³nowarto¶ciowym IDE dla Pythona napisanym w PyQt i
-u¿ywaj±cy edytora QScintilla.
+u¿ywaj±cym edytora QScintilla.
 
 %prep
 # %%setup -q -n %{tar_name}-%{version}.tar.gz
 %setup -q -n %{tar_name}-snapshot-%{snap}
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
