@@ -3,14 +3,12 @@ Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 %define		tar_name	eric
-Version:	3.4.1
-#%%define snap 20031115
+Version:	3.4.2
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
-# Source0-md5:	205a9509e3c2f8d8deea2f263cc23a26
-# Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
+# Source0-md5:	2e88c9ee5292cedef7920f81f5a80965
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt >= 3.8
 BuildRequires:	qscintilla-devel >= 1:1.2
@@ -33,15 +31,13 @@ u¿ywaj±cym edytora QScintilla.
 
 %prep
 %setup -q -n %{tar_name}-%{version}
-#%%setup -q -n %{tar_name}-snapshot-%{snap}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_docdir}/%{name}
-python install.py -b %{_bindir} -d %{py_sitedir} -i $RPM_BUILD_ROOT
+python install.py -c -b %{_bindir} -d %{py_sitedir} -i $RPM_BUILD_ROOT
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
-#find $RPM_BUILD_ROOT%{py_sitedir} -name \*.py -exec rm {} \;
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -85,8 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Scripting/*.py[co]
 %dir %{py_sitedir}/%{name}/QScintilla
 %{py_sitedir}/%{name}/QScintilla/*.py[co]
-#%%dir %{py_sitedir}/%{name}/Tools
-#%%{py_sitedir}/%{name}/Tools/*.py[co]
 %dir %{py_sitedir}/%{name}/UI
 %{py_sitedir}/%{name}/UI/*.py[co]
 %dir %{py_sitedir}/%{name}/Utilities
@@ -134,7 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/%{name}/ThirdParty/brm/bike/transformer
 %{py_sitedir}/%{name}/ThirdParty/brm/bike/transformer/*.py[co]
 
-#NOTE: eric3 uses *.py files for it's own purposes
+# NOTE: eric3 uses *.py files for it's own purposes
 # so do not remove them from package
 %{py_sitedir}/%{name}/*.py
 %{py_sitedir}/%{name}/*/*.py
