@@ -14,7 +14,7 @@ URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt >= 3.13
 BuildRequires:	qscintilla-devel >= 1:1.4
 BuildRequires:	rpm-pythonprov
-pyrequires_eq:	python-modules
+%pyrequires_eq	python-modules
 Requires:	python-PyQt >= 3.13
 Requires:	python-devel-tools
 Obsoletes:	eric
