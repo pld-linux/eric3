@@ -5,7 +5,7 @@ Name:		eric3
 %define		tar_name	eric
 Version:	3.3
 %define snap 20030817
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 License:	GPL
 Group:		X11/Development/Tools
 # Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
@@ -69,6 +69,10 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Project/*.py[co]
 %dir %{py_sitedir}/%{name}/PyUnit
 %{py_sitedir}/%{name}/PyUnit/*.py[co]
+%dir %{py_sitedir}/%{name}/Refactoring
+%{py_sitedir}/%{name}/Refactoring/*.py[co]
+%dir %{py_sitedir}/%{name}/Scripting
+%{py_sitedir}/%{name}/Scripting/*.py[co]
 %dir %{py_sitedir}/%{name}/QScintilla
 %{py_sitedir}/%{name}/QScintilla/*.py[co]
 %dir %{py_sitedir}/%{name}/Tools
@@ -98,8 +102,28 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Wizards/InputDialogWizard/*.py[co]
 %dir %{py_sitedir}/%{name}/Wizards/MessageBoxWizard
 %{py_sitedir}/%{name}/Wizards/MessageBoxWizard/*.py[co]
+
+# Third party brm/bike - to separate package ?
+# I have no idea that is that ...
+%dir %{py_sitedir}/%{name}/ThirdParty/
+%{py_sitedir}/%{name}/ThirdParty/*.py[co]
+%dir %{py_sitedir}/%{name}/ThirdParty/brm
+%{py_sitedir}/%{name}/ThirdParty/brm/*.py[co]
+%dir %{py_sitedir}/%{name}/ThirdParty/brm/bike
+%{py_sitedir}/%{name}/ThirdParty/brm/bike/*.py[co]
+%dir %{py_sitedir}/%{name}/ThirdParty/brm/bike/parsing
+%{py_sitedir}/%{name}/ThirdParty/brm/bike/parsing/*.py[co]
+%dir %{py_sitedir}/%{name}/ThirdParty/brm/bike/query
+%{py_sitedir}/%{name}/ThirdParty/brm/bike/query/*.py[co]
+%dir %{py_sitedir}/%{name}/ThirdParty/brm/bike/refactor
+%{py_sitedir}/%{name}/ThirdParty/brm/bike/refactor/*.py[co]
+%dir %{py_sitedir}/%{name}/ThirdParty/brm/bike/transformer
+%{py_sitedir}/%{name}/ThirdParty/brm/bike/transformer/*.py[co]
+
 #NOTE: eric3 uses *.py files for it's own purposes
 # so do not remove them from package
 %{py_sitedir}/%{name}/*.py
 %{py_sitedir}/%{name}/*/*.py
 %{py_sitedir}/%{name}/*/*/*.py
+%{py_sitedir}/%{name}/*/*/*/*.py
+%{py_sitedir}/%{name}/*/*/*/*/*.py
