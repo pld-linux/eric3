@@ -12,12 +12,12 @@ Group:		X11/Development/Tools
 Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
 # Source0-md5:	ad8b99f617944ef65d08d984a0371c66
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
-BuildRequires:	python-PyQt-devel >= 3.8
-BuildRequires:	qscintilla-devel >= 1:1.2
+BuildRequires:	python-PyQt-devel >= 3.7
+BuildRequires:	qscintilla-devel 
 BuildRequires:	rpm-pythonprov
-BuildRequires:	sip >= 3.8
+BuildRequires:	sip >= 3.7
 %pyrequires_eq	python # python-modules ?
-Requires:	python-PyQt >= 3.8
+Requires:	python-PyQt >= 3.7
 Obsoletes:	eric
 
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
