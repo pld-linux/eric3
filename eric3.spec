@@ -7,7 +7,7 @@ Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://www.die-offenbachs.de/detlev/files/%{name}-%{version}.tar.gz
-# Source0-md5:	13306aae93069822185464f0969ae365
+# Source0-md5:	a54fc499428f79c6046bbccc9c4e3beb
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt-devel >= 2.2.1
 BuildRequires:	qt-devel >= 3.0.2
