@@ -1,11 +1,13 @@
-# TODO: - Add HTML docs.
+# TODO:
+# - separate packages (eg. brm, KdeQt - with BR python-PyKDE)
+#
 %define		_snapshot	20041223
 %define		tar_name	eric
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 Version:	3.6
-Release:	0.%{_snapshot}.1
+Release:	0.%{_snapshot}.2
 License:	GPL
 Group:		X11/Development/Tools
 #%Source0:	http://dl.sourceforge.net/sourceforge/eric-ide/%{tar_name}-%{version}.tar.gz
@@ -51,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README eric/Documentation/*
+%doc HISTORY README* THANKS
 %attr(755,root,root) %{_bindir}/*
 %dir %{py_sitedir}/
 %{py_sitedir}/eric3config.py
@@ -81,18 +83,22 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/%{name}/Graphics
 %{py_sitedir}/%{name}/Graphics/*.py[co]
 %{py_sitedir}/%{name}/icons
+%dir %{py_sitedir}/%{name}/KdeQt
+%{py_sitedir}/%{name}/KdeQt/*.py[co]
 %dir %{py_sitedir}/%{name}/Preferences
 %{py_sitedir}/%{name}/Preferences/*.py[co]
 %dir %{py_sitedir}/%{name}/Project
 %{py_sitedir}/%{name}/Project/*.py[co]
 %dir %{py_sitedir}/%{name}/PyUnit
 %{py_sitedir}/%{name}/PyUnit/*.py[co]
+%dir %{py_sitedir}/%{name}/QScintilla
+%{py_sitedir}/%{name}/QScintilla/*.py[co]
 %dir %{py_sitedir}/%{name}/Refactoring
 %{py_sitedir}/%{name}/Refactoring/*.py[co]
 %dir %{py_sitedir}/%{name}/Scripting
 %{py_sitedir}/%{name}/Scripting/*.py[co]
-%dir %{py_sitedir}/%{name}/QScintilla
-%{py_sitedir}/%{name}/QScintilla/*.py[co]
+%dir %{py_sitedir}/%{name}/Tools
+%{py_sitedir}/%{name}/Tools/*.py[co]
 %dir %{py_sitedir}/%{name}/UI
 %{py_sitedir}/%{name}/UI/*.py[co]
 %dir %{py_sitedir}/%{name}/Utilities
@@ -149,5 +155,11 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/*/*/*.py
 %{py_sitedir}/%{name}/*/*/*/*.py
 %{py_sitedir}/%{name}/*/*/*/*/*.py
+
+# Eric documentation
+%dir %{py_sitedir}/%{name}/Documentation
+%{py_sitedir}/%{name}/Documentation/mod_python.*
+%{py_sitedir}/%{name}/Documentation/Source
+
 %{_pixmapsdir}/%{name}.png
 %{_desktopdir}/%{name}.desktop
