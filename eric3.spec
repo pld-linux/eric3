@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.python
 Summary:	Eric3 is a full featured Python IDE
-Summary(pl):	Eric3 jest pe³nowarto¶ciowym IDE dla Python'a
+Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric
 Version:	3.0.1
 Release:	1
@@ -18,50 +18,23 @@ BuildRequires:	sip >= 3.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Eric3 is a full featured Python IDE that is written in PyQt using the QScintilla editor widget
+Eric3 is a full featured Python IDE that is written in PyQt using the
+QScintilla editor widget.
 
 %description -l pl
-Eric3 jest pe³nowarto¶ciowym IDE dla Python'a napisanym w  PyQt i u¿ywaj±cy edytor QScintilla
-
-#%package devel
-#Summary: Files needed to build other bindings based on Qt
-#Summary(pl): Pliki nag³ówkowe %{name}
-#Requires: %{name} = %{version}
-#Group: Development/Languages/Python
-
-#%description devel
-#Files needed to build other bindings for C++ classes that inherit from any
-#of the Qt classes (e.g. KDE or your own).
-
-#%description devel -l pl
-#Files needed to build other bindings for C++ classes that inherit from any
-#of the Qt classes (e.g. KDE or your own).
-
-#%package examples
-#Summary: Examples for PyQt
-#Summary(pl): Przyklady dla PyQt
-#Requires: %{name} = %{version}
-#Group: Libraries/Python
-
-#%description examples
-#Examples code demonstrating how to use the Python bindings for Qt.
-
-#%description examples -l pl
-#Przykladowy kod demonstruj±cy jak u¿ywaæ PyQT.
+Eric3 jest pe³nowarto¶ciowym IDE dla Pythona napisanym w PyQt i
+u¿ywaj±cy edytora QScintilla.
 
 %prep
 %setup -q 
 
 %build
-
-#rm -rf $RPM_BUILD_ROOT
-#install -d $RPM_BUILD_ROOT%{py_sitedir}
-#install -d $RPM_BUILD_ROOT%{_bindir}
 python install.py -b $RPM_BUILD_ROOT%{_bindir} -d $RPM_BUILD_ROOT%{py_sitedir} -i temp
 
 %{__make}
 
 %install
+rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/python/%{module}
 
 %{__make} install \
@@ -70,6 +43,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/python/%{module}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 cp -R examples3/* $RPM_BUILD_ROOT%{_examplesdir}/python/%{module}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -78,12 +52,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS README THANKS doc/%{module}/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{py_sitedir}/lib*.so*
-
-#%files devel
-#%defattr(644,root,root,755)
-#%%{py_sitedir}/*.py
-#%%{py_sitedir}/*.py[co]
-
-#%files examples
-#%defattr(644,root,root,755)
-#%%{_examplesdir}/python/%{module}
