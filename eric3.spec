@@ -3,13 +3,13 @@ Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
 %define		tar_name	eric
-Version:	3.3.1
+Version:	3.4.1
 #%%define snap 20031115
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://www.die-offenbachs.de/detlev/files/%{tar_name}-%{version}.tar.gz
-# Source0-md5:	b90eb45006bf66bedab872870557e08a
+# Source0-md5:	205a9509e3c2f8d8deea2f263cc23a26
 # Source0:	http://www.die-offenbachs.de/detlev/snapshots/%{tar_name}-snapshot-%{snap}.tar.gz
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt >= 3.8
@@ -58,6 +58,8 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Checks/*.py[co]
 %dir %{py_sitedir}/%{name}/Debugger
 %{py_sitedir}/%{name}/Debugger/*.py[co]
+%dir %{py_sitedir}/%{name}/Debugger/Cyclops
+%{py_sitedir}/%{name}/Debugger/Cyclops/*.py[co]
 %dir %{py_sitedir}/%{name}/DesignerTemplates
 %{py_sitedir}/%{name}/DesignerTemplates/*.tmpl
 %dir %{py_sitedir}/%{name}/DocumentationTools
@@ -65,10 +67,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/%{name}/Examples
 %{py_sitedir}/%{name}/Examples/*.py[co]
 %dir %{py_sitedir}/%{name}/Examples/Scripting
+%{py_sitedir}/%{name}/Examples/Scripting/*.py[co]
 %dir %{py_sitedir}/%{name}/Helpviewer
 %{py_sitedir}/%{name}/Helpviewer/*.py[co]
-%dir %{py_sitedir}/%{name}/Icons
-%{py_sitedir}/%{name}/Icons/*.py[co]
+%dir %{py_sitedir}/%{name}/Graphics
+%{py_sitedir}/%{name}/Graphics/*.py[co]
+%{py_sitedir}/%{name}/icons
 %dir %{py_sitedir}/%{name}/Preferences
 %{py_sitedir}/%{name}/Preferences/*.py[co]
 %dir %{py_sitedir}/%{name}/Project
@@ -81,8 +85,8 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Scripting/*.py[co]
 %dir %{py_sitedir}/%{name}/QScintilla
 %{py_sitedir}/%{name}/QScintilla/*.py[co]
-%dir %{py_sitedir}/%{name}/Tools
-%{py_sitedir}/%{name}/Tools/*.py[co]
+#%%dir %{py_sitedir}/%{name}/Tools
+#%%{py_sitedir}/%{name}/Tools/*.py[co]
 %dir %{py_sitedir}/%{name}/UI
 %{py_sitedir}/%{name}/UI/*.py[co]
 %dir %{py_sitedir}/%{name}/Utilities
@@ -108,6 +112,10 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{name}/Wizards/InputDialogWizard/*.py[co]
 %dir %{py_sitedir}/%{name}/Wizards/MessageBoxWizard
 %{py_sitedir}/%{name}/Wizards/MessageBoxWizard/*.py[co]
+%dir %{py_sitedir}/%{name}/Wizards/PyRegExpWizard
+%{py_sitedir}/%{name}/Wizards/PyRegExpWizard/*.py[co]
+%dir %{py_sitedir}/%{name}/Wizards/QRegExpWizard
+%{py_sitedir}/%{name}/Wizards/QRegExpWizard/*.py[co]
 
 # Third party brm/bike - to separate package ?
 # I have no idea that is that ...
