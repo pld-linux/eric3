@@ -13,14 +13,13 @@ Source0:	http://www.die-offenbachs.de/detlev/snapshots/eric-snapshot-%{snap}.tar
 # Source0-md5:	9db7238519beefdb3599d34413b4e79a
 Source1:	%{name}.desktop
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
-#BuildRequires:	python-PyQt >= 3.13
+BuildRequires:	python-PyQt-devel >= 3.13
 #BuildRequires:	qscintilla-devel >= 1:1.4
 #BuildRequires:	rpm-pythonprov
 #BuildRequires:	sip >= 4.1.1
 %pyrequires_eq	python # python-modules ?
-Requires:	python-devel-tools
 Requires:	python-PyQt >= 3.13
-BuildRequires:	python-PyQt-devel >= 3.13
+Requires:	python-devel-tools
 Obsoletes:	eric
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
