@@ -17,6 +17,7 @@ BuildRequires:	qscintilla-devel >= 1:1.2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sip >= 3.8
 %pyrequires_eq	python # python-modules ?
+Requires:	python-devel-tools
 Requires:	python-PyQt >= 3.8
 Obsoletes:	eric
 
