@@ -55,7 +55,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc HISTORY README* THANKS
 %attr(755,root,root) %{_bindir}/*
-%dir %{py_sitedir}/
 %{py_sitedir}/eric3config.py
 %{py_sitedir}/sitecustomize.py
 %dir %{py_sitedir}/%{name}
