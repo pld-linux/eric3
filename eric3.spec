@@ -5,19 +5,19 @@
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
-Version:	3.7.1
+Version:	3.7.2
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://dl.sourceforge.net/eric-ide/%{tar_name}-%{version}.tar.gz
-# Source0-md5:	5987f13d199df352df8862eec024fc39
+# Source0-md5:	b0b1114cd823cb149844ac95dcf5b4ac
 Source1:	%{name}.desktop
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
-BuildRequires:	python
-BuildRequires:	python-PyQt >= 3.14
+BuildRequires:	python-PyQt >= 3.15
 BuildRequires:	qscintilla-devel >= 1:1.5
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
-Requires:	python-PyQt >= 3.14
+Requires:	python-PyQt >= 3.15
 Requires:	python-devel-tools
 Obsoletes:	eric
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
