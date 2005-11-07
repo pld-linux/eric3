@@ -5,12 +5,12 @@
 Summary:	Eric3 is a full featured Python IDE
 Summary(pl):	Eric3 - pe³nowarto¶ciowe IDE dla Pythona
 Name:		eric3
-Version:	3.7.2
-Release:	1
+Version:	3.8.0
+Release:	0.1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://dl.sourceforge.net/eric-ide/%{tar_name}-%{version}.tar.gz
-# Source0-md5:	b0b1114cd823cb149844ac95dcf5b4ac
+# Source0-md5:	c0123a5c9d5dcbf7f2f1464f65d919f3
 Source1:	%{name}.desktop
 URL:		http://www.die-offenbachs.de/detlev/eric3.html
 BuildRequires:	python-PyQt >= 3.15
@@ -29,6 +29,18 @@ QScintilla editor widget.
 %description -l pl
 Eric3 jest pe³nowarto¶ciowym IDE dla Pythona napisanym w PyQt i
 u¿ywaj±cym edytora QScintilla.
+
+%package doc
+Summary:	Documentation for Eric3
+Summary(pl):	Dodatkowa dokumantacja dla Eric3
+Group:		X11/Development/Tools
+Requires:	%{name}-%{version}-%{release}
+
+%description doc
+Documentation for Eric3.
+
+%description doc -l pl
+Dodatkowa dokumantacja dla Eric3.
 
 %prep
 %setup -q -n %{tar_name}-%{version}
@@ -57,83 +69,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{py_sitedir}/eric3config.py
 %{py_sitedir}/sitecustomize.py
-%dir %{py_sitedir}/%{name}
-%{py_sitedir}/%{name}/default.e3k
-%{py_sitedir}/%{name}/eric3.api
-%{py_sitedir}/%{name}/*.py*
-%{py_sitedir}/%{name}/pixmaps
-%{py_sitedir}/%{name}/DTDs
-%dir %{py_sitedir}/%{name}/Checks
-%{py_sitedir}/%{name}/Checks/*.py*
-%{py_sitedir}/%{name}/DebugClients
-%dir %{py_sitedir}/%{name}/Debugger
-%{py_sitedir}/%{name}/Debugger/*.py*
-%{py_sitedir}/%{name}/Debugger/Cyclops
-%{py_sitedir}/%{name}/DesignerTemplates
-%dir %{py_sitedir}/%{name}/DocumentationTools
-%{py_sitedir}/%{name}/DocumentationTools/*.py*
-%{py_sitedir}/%{name}/Examples
-%dir %{py_sitedir}/%{name}/Helpviewer
-%{py_sitedir}/%{name}/Helpviewer/*.py*
-%dir %{py_sitedir}/%{name}/Graphics
-%{py_sitedir}/%{name}/Graphics/*.py*
-%{py_sitedir}/%{name}/icons
-%{py_sitedir}/%{name}/KdeQt
-%dir %{py_sitedir}/%{name}/Preferences
-%{py_sitedir}/%{name}/Preferences/*.py*
-%dir %{py_sitedir}/%{name}/Project
-%{py_sitedir}/%{name}/Project/*.py*
-%dir %{py_sitedir}/%{name}/PyUnit
-%{py_sitedir}/%{name}/PyUnit/*.py*
-%dir %{py_sitedir}/%{name}/QScintilla
-%{py_sitedir}/%{name}/QScintilla/*.py*
-%dir %{py_sitedir}/%{name}/Refactoring
-%{py_sitedir}/%{name}/Refactoring/*.py*
-%dir %{py_sitedir}/%{name}/Scripting
-%{py_sitedir}/%{name}/Scripting/*.py*
-%{py_sitedir}/%{name}/Tools
-%dir %{py_sitedir}/%{name}/UI
-%{py_sitedir}/%{name}/UI/*.py*
-%{py_sitedir}/%{name}/Utilities
-%dir %{py_sitedir}/%{name}/VCS
-%{py_sitedir}/%{name}/VCS/*.py*
-%dir %{py_sitedir}/%{name}/VCS/cvsPackage
-%{py_sitedir}/%{name}/VCS/cvsPackage/*.py*
-%dir %{py_sitedir}/%{name}/VCS/subversionPackage
-%{py_sitedir}/%{name}/VCS/subversionPackage/*.py*
-%dir %{py_sitedir}/%{name}/ViewManager
-%{py_sitedir}/%{name}/ViewManager/*.py*
-%dir %{py_sitedir}/%{name}/Wizards
-%{py_sitedir}/%{name}/Wizards/*.py*
-%dir %{py_sitedir}/%{name}/Wizards/ColorDialogWizard
-%{py_sitedir}/%{name}/Wizards/ColorDialogWizard/*.py*
-%dir %{py_sitedir}/%{name}/Wizards/FileDialogWizard
-%{py_sitedir}/%{name}/Wizards/FileDialogWizard/*.py*
-%dir %{py_sitedir}/%{name}/Wizards/FontDialogWizard
-%{py_sitedir}/%{name}/Wizards/FontDialogWizard/*.py*
-%dir %{py_sitedir}/%{name}/Wizards/InputDialogWizard
-%{py_sitedir}/%{name}/Wizards/InputDialogWizard/*.py*
-%dir %{py_sitedir}/%{name}/Wizards/MessageBoxWizard
-%{py_sitedir}/%{name}/Wizards/MessageBoxWizard/*.py*
-%dir %{py_sitedir}/%{name}/Wizards/PyRegExpWizard
-%{py_sitedir}/%{name}/Wizards/PyRegExpWizard/*.py*
-%dir %{py_sitedir}/%{name}/Wizards/QRegExpWizard
-%{py_sitedir}/%{name}/Wizards/QRegExpWizard/*.py*
-%dir %{py_sitedir}/%{name}/XML
-%{py_sitedir}/%{name}/XML/*.py*
+%{py_sitedir}/%{name}
+%exclude %{py_sitedir}/%{name}/Documentation
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png
 
-# Third party brm/bike - to separate package ?
-# I have no idea what is that ...
-%dir %{py_sitedir}/%{name}/ThirdParty
-%{py_sitedir}/%{name}/ThirdParty/*.py*
-%dir %{py_sitedir}/%{name}/ThirdParty/brm
-%{py_sitedir}/%{name}/ThirdParty/brm/*.py*
-%{py_sitedir}/%{name}/ThirdParty/brm/bike
-
-# Eric documentation
+%files doc
+%defattr(644,root,root,755)
 %dir %{py_sitedir}/%{name}/Documentation
 %{py_sitedir}/%{name}/Documentation/mod_python.*
 %{py_sitedir}/%{name}/Documentation/Source
-
-%{_pixmapsdir}/%{name}.png
-%{_desktopdir}/%{name}.desktop
