@@ -33,7 +33,7 @@ u¿ywaj±cym edytora QScintilla.
 
 %package doc
 Summary:	Documentation for Eric3
-Summary(pl):	Dodatkowa dokumantacja dla Eric3
+Summary(pl):	Dodatkowa dokumentacja dla Eric3
 Group:		X11/Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
@@ -41,7 +41,7 @@ Requires:	%{name} = %{version}-%{release}
 Documentation for Eric3.
 
 %description doc -l pl
-Dodatkowa dokumantacja dla Eric3.
+Dodatkowa dokumentacja dla Eric3.
 
 %prep
 %setup -q -n %{tar_name}-snapshot-%{_snap}
