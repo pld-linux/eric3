@@ -3,7 +3,7 @@
 #
 %define		tar_name	eric
 Summary:	Eric3 is a full featured Python IDE
-Summary(pl):	Eric3 - pe≥nowarto∂ciowe IDE dla Pythona
+Summary(pl.UTF-8):   Eric3 - pe≈Çnowarto≈õciowe IDE dla Pythona
 Name:		eric3
 Version:	3.9.4
 Release:	1
@@ -26,20 +26,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Eric3 is a full featured Python IDE that is written in PyQt using the
 QScintilla editor widget.
 
-%description -l pl
-Eric3 jest pe≥nowarto∂ciowym IDE dla Pythona napisanym w PyQt i
-uøywaj±cym edytora QScintilla.
+%description -l pl.UTF-8
+Eric3 jest pe≈Çnowarto≈õciowym IDE dla Pythona napisanym w PyQt i
+u≈ºywajƒÖcym edytora QScintilla.
 
 %package doc
 Summary:	Documentation for Eric3
-Summary(pl):	Dodatkowa dokumentacja dla Eric3
+Summary(pl.UTF-8):   Dodatkowa dokumentacja dla Eric3
 Group:		X11/Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
 %description doc
 Documentation for Eric3.
 
-%description doc -l pl
+%description doc -l pl.UTF-8
 Dodatkowa dokumentacja dla Eric3.
 
 %prep
