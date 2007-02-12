@@ -3,7 +3,7 @@
 #
 %define		tar_name	eric
 Summary:	Eric3 is a full featured Python IDE
-Summary(pl.UTF-8):   Eric3 - pełnowartościowe IDE dla Pythona
+Summary(pl.UTF-8):	Eric3 - pełnowartościowe IDE dla Pythona
 Name:		eric3
 Version:	3.9.4
 Release:	1
@@ -32,7 +32,7 @@ używającym edytora QScintilla.
 
 %package doc
 Summary:	Documentation for Eric3
-Summary(pl.UTF-8):   Dodatkowa dokumentacja dla Eric3
+Summary(pl.UTF-8):	Dodatkowa dokumentacja dla Eric3
 Group:		X11/Development/Tools
 Requires:	%{name} = %{version}-%{release}
 
